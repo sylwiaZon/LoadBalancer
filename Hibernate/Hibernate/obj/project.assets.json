@@ -5385,11 +5385,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Hibernate\\Hibernate\\Hibernate.csproj",
+      "projectUniqueName": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\LoadBalancer\\Hibernate\\Hibernate\\Hibernate.csproj",
       "projectName": "Hibernate",
-      "projectPath": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Hibernate\\Hibernate\\Hibernate.csproj",
+      "projectPath": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\LoadBalancer\\Hibernate\\Hibernate\\Hibernate.csproj",
       "packagesPath": "C:\\Users\\Sylwia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Hibernate\\Hibernate\\obj\\",
+      "outputPath": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\LoadBalancer\\Hibernate\\Hibernate\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Sylwia\\AppData\\Roaming\\NuGet\\NuGet.Config",
