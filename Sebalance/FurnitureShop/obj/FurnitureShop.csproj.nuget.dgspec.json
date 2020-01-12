@@ -1,0 +1,122 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Sebalance\\FurnitureShop\\FurnitureShop.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Sebalance\\FurnitureShop\\FurnitureShop.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Sebalance\\FurnitureShop\\FurnitureShop.csproj",
+        "projectName": "FurnitureShop",
+        "projectPath": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Sebalance\\FurnitureShop\\FurnitureShop.csproj",
+        "packagesPath": "C:\\Users\\Sylwia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Sebalance\\FurnitureShop\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Sylwia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Sebalance\\Sebalance\\Sebalance.csproj": {
+                "projectPath": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Sebalance\\Sebalance\\Sebalance.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Sebalance\\Sebalance\\Sebalance.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Sebalance\\Sebalance\\Sebalance.csproj",
+        "projectName": "Sebalance",
+        "projectPath": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Sebalance\\Sebalance\\Sebalance.csproj",
+        "packagesPath": "C:\\Users\\Sylwia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\Sebalance\\Sebalance\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Sylwia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "NHibernate": {
+              "target": "Package",
+              "version": "[5.2.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
