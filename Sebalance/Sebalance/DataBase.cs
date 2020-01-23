@@ -12,7 +12,7 @@ namespace Sebalance
         private int HeartBeatCounter { get; set; }
         private int LastCommand { get; set; }
 
-        DataBase(ISessionFactory sessionFactory)
+        public DataBase(ISessionFactory sessionFactory)
         {
             SessionFacotry = sessionFactory;
             Available = true;
@@ -31,9 +31,14 @@ namespace Sebalance
             Available = av;
         }
 
-        public object GetSessionFactory()
+        public ISessionFactory GetSessionFactory()
         {
             return SessionFacotry;
+        }
+
+        public ISession GetSession()
+        {
+            return SessionFacotry.OpenSession();
         }
 
         public bool IsAvailable()
