@@ -4967,11 +4967,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/Sebalance/Sebalance.csproj",
+      "projectUniqueName": "/Users/pyszczekk/Desktop/LoadBalancer/Sebalance/Sebalance/Sebalance.csproj",
       "projectName": "Sebalance",
-      "projectPath": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/Sebalance/Sebalance.csproj",
+      "projectPath": "/Users/pyszczekk/Desktop/LoadBalancer/Sebalance/Sebalance/Sebalance.csproj",
       "packagesPath": "/Users/pyszczekk/.nuget/packages/",
-      "outputPath": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/Sebalance/obj/",
+      "outputPath": "/Users/pyszczekk/Desktop/LoadBalancer/Sebalance/Sebalance/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/pyszczekk/.config/NuGet/NuGet.Config"
