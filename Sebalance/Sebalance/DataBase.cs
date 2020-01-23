@@ -1,26 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using NHibernate;
 
 namespace Sebalance
 {
-    class DataBase
+    public class DataBase
     {
-        private object SessionFacotry { get; set; }
-        private int Port { get; set; }
-        private string Username { get; set; }
-        private string Password { get; set; }
+        private ISessionFactory SessionFacotry { get; set; }
         private bool Available { get; set; }
         private bool SwitchedOff { get; set; }
         private int HeartBeatCounter { get; set; }
         private int LastCommand { get; set; }
 
-        DataBase(object sessionFactory, int port, string username, string password)
+        DataBase(ISessionFactory sessionFactory)
         {
             SessionFacotry = sessionFactory;
-            Port = port;
-            Username = username;
-            Password = password;
             Available = true;
             SwitchedOff = false;
             HeartBeatCounter = 0;
@@ -40,21 +34,6 @@ namespace Sebalance
         public object GetSessionFactory()
         {
             return SessionFacotry;
-        }
-
-        public int GetPortNumber()
-        {
-            return Port;
-        }
-
-        public string GetUsername()
-        {
-            return Username;
-        }
-
-        public string GetPassword()
-        {
-            return Password;
         }
 
         public bool IsAvailable()

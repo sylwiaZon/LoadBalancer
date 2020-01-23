@@ -5,28 +5,24 @@ namespace Sebalance
 {
     public class LoadBalancer
     {
-        IStrategy Strategy;
-        int CurrentDataBase;
-        static List<DataBase> AllDataBases;
-        int Max;
+        private static IStrategy Strategy;
+        private static int CurrentDataBase = 0;
+        private static List<DataBase> AllDataBases;
+        static int Max;
+
+        private LoadBalancer() { }
         
-        public LoadBalancer(IStrategy s)
+        public static void SetStrategy(IStrategy s)
         {
             Strategy = s;
         }
-        public void SetMaximum(int m)
-        {
-            Max = m;
+
+        public static void SetDatabases(List<DataBase> dbs) {
+            AllDataBases = dbs;
+            Max = dbs.Count;
         }
-        public void SetCurrent(int k)
-        {
-            CurrentDataBase = k;
-        }
-        public void SetStrategy(IStrategy s)
-        {
-            Strategy = s;
-        }
-        public DataBase ChooseDatabase()
+
+        static public DataBase ChooseDatabase()
         {
             CurrentDataBase = Strategy.GetNext(CurrentDataBase, Max);
             return AllDataBases[CurrentDataBase];

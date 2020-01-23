@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{8449B613-0D1D-419C-80A2-73A67189AF2A}|Default">
   <MonoDevelop.Ide.ItemProperties.FurnitureShop PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Sebalance/LoadBalancer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Sebalance/NHibernateSessionFactory.cs">
     <Files>
-      <File FileName="Sebalance/LoadBalancer.cs" Line="9" Column="48" />
-      <File FileName="Sebalance/HeartBeat.cs" Line="10" Column="34" />
-      <File FileName="Sebalance/DataBase.cs" Line="8" Column="6" />
-      <File FileName="Sebalance/OpenSessionInViewSection.cs" Line="1" Column="1" />
-      <File FileName="FurnitureShop/Program.cs" Line="19" Column="24" />
-      <File FileName="Sebalance/DataBasesCollection.cs" Line="1" Column="1" />
+      <File FileName="Sebalance/LoadBalancer.cs" Line="9" Column="47" />
+      <File FileName="Sebalance/HeartBeat.cs" />
+      <File FileName="Sebalance/DataBase.cs" Line="18" Column="30" />
+      <File FileName="Sebalance/OpenSessionInViewSection.cs" />
+      <File FileName="FurnitureShop/Program.cs" />
+      <File FileName="Sebalance/DataBasesCollection.cs" />
+      <File FileName="Sebalance/NHibernateSessionFactory.cs" Line="26" Column="53" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +16,7 @@
           <Node name="Sebalance" expanded="True">
             <Node name="FurnitureShop" expanded="True" />
             <Node name="Sebalance" expanded="True">
-              <Node name="LoadBalancer.cs" selected="True" />
+              <Node name="NHibernateSessionFactory.cs" selected="True" />
             </Node>
           </Node>
         </State>
