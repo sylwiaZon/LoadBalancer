@@ -1,32 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/FurnitureShop/FurnitureShop.csproj": {}
+    "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\FurnitureShop\\FurnitureShop.csproj": {}
   },
   "projects": {
-    "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/FurnitureShop/FurnitureShop.csproj": {
+    "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\FurnitureShop\\FurnitureShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/FurnitureShop/FurnitureShop.csproj",
+        "projectUniqueName": "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\FurnitureShop\\FurnitureShop.csproj",
         "projectName": "FurnitureShop",
-        "projectPath": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/FurnitureShop/FurnitureShop.csproj",
-        "packagesPath": "/Users/pyszczekk/.nuget/packages/",
-        "outputPath": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/FurnitureShop/obj/",
+        "projectPath": "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\FurnitureShop\\FurnitureShop.csproj",
+        "packagesPath": "C:\\Users\\alabr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\FurnitureShop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/pyszczekk/.config/NuGet/NuGet.Config"
+          "C:\\Users\\alabr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/Sebalance/Sebalance.csproj": {
-                "projectPath": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/Sebalance/Sebalance.csproj"
+              "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\Sebalance\\Sebalance.csproj": {
+                "projectPath": "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\Sebalance\\Sebalance.csproj"
               }
             }
           }
@@ -49,31 +51,51 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/Sebalance/Sebalance.csproj": {
+    "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\Sebalance\\Sebalance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/Sebalance/Sebalance.csproj",
+        "projectUniqueName": "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\Sebalance\\Sebalance.csproj",
         "projectName": "Sebalance",
-        "projectPath": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/Sebalance/Sebalance.csproj",
-        "packagesPath": "/Users/pyszczekk/.nuget/packages/",
-        "outputPath": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/Sebalance/obj/",
+        "projectPath": "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\Sebalance\\Sebalance.csproj",
+        "packagesPath": "C:\\Users\\alabr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\Sebalance\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/pyszczekk/.config/NuGet/NuGet.Config"
+          "C:\\Users\\alabr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -105,12 +127,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
