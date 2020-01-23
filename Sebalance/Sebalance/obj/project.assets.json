@@ -4962,24 +4962,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/pyszczekk/.nuget/packages/": {}
+    "C:\\Users\\Sylwia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/Sebalance/Sebalance.csproj",
+      "projectUniqueName": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\LoadBalancer\\Sebalance\\Sebalance\\Sebalance.csproj",
       "projectName": "Sebalance",
-      "projectPath": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/Sebalance/Sebalance.csproj",
-      "packagesPath": "/Users/pyszczekk/.nuget/packages/",
-      "outputPath": "/Users/pyszczekk/Desktop/LoadBalancer-master/Sebalance/Sebalance/obj/",
+      "projectPath": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\LoadBalancer\\Sebalance\\Sebalance\\Sebalance.csproj",
+      "packagesPath": "C:\\Users\\Sylwia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sylwia\\Desktop\\Studia\\DP\\LoadBalancer\\Sebalance\\Sebalance\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/pyszczekk/.config/NuGet/NuGet.Config"
+        "C:\\Users\\Sylwia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5016,7 +5018,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

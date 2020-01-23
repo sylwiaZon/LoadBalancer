@@ -7,6 +7,12 @@ namespace Sebalance
 {
     public class DataBaseElement : ConfigurationElement
     {
+        private DataBase dataBase;
+        public DataBaseElement() { }
+        public DataBaseElement()
+        {
+
+        }
         public object Name { get; internal set; }
     }
 }
