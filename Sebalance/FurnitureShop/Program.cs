@@ -11,18 +11,18 @@ namespace FurnitureShop
 
 
             
-            Strategy s = new RandomStrategy();
-            Strategy s2 = new RoundRobin();
+            IStrategy s = new RandomStrategy();
+            IStrategy s2 = new RoundRobin();
             LoadBalancer lb = new LoadBalancer();
            for (int i = 0; i < 15; i++)
             {
-                Console.WriteLine(lb.chooseDatabase());
+                Console.WriteLine(lb.ChooseDatabase());
             }
-            lb.setStrategy(s2);
+            lb.SetStrategy(s2);
             Console.WriteLine("randomix");
             for (int i = 0; i < 15; i++)
             {
-                Console.WriteLine(lb.chooseDatabase());
+                Console.WriteLine(lb.ChooseDatabase());
             }
             
         }

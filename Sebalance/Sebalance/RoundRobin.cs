@@ -1,9 +1,9 @@
 ﻿using System;
 namespace Sebalance
 {
-    public class RoundRobin : Strategy
+    public class RoundRobin : IStrategy
     {
-        public int getNext(int current, int max)
+        public int GetNext(int current, int max)
         {
             int next = current + 1;
             if (next > max)

@@ -3,35 +3,35 @@ namespace Sebalance
 {
     public class LoadBalancer
     {
-        Strategy strategy;
-        int currentDataBase;
-        int max;
+        IStrategy Strategy;
+        int CurrentDataBase;
+        int Max;
         public LoadBalancer()
         {
-            this.strategy = new RoundRobin();
-            this.currentDataBase = 0;
-            this.max = 9;
+            Strategy = new RoundRobin();
+            CurrentDataBase = 0;
+            Max = 9;
         }
-        public LoadBalancer(Strategy s)
+        public LoadBalancer(IStrategy s)
         {
-            this.strategy = s;
+            Strategy = s;
         }
-        public void setMaximum(int m)
+        public void SetMaximum(int m)
         {
-            this.max = m;
+            Max = m;
         }
-        public void setCurrent(int k)
+        public void SetCurrent(int k)
         {
-            this.currentDataBase = k;
+            CurrentDataBase = k;
         }
-        public void setStrategy(Strategy s)
+        public void SetStrategy(IStrategy s)
         {
-            this.strategy = s;
+            Strategy = s;
         }
-        public int chooseDatabase()
+        public int ChooseDatabase()
         {
-            this.currentDataBase= this.strategy.getNext(this.currentDataBase, this.max);
-            return this.currentDataBase;
+            CurrentDataBase= Strategy.GetNext(CurrentDataBase, Max);
+            return CurrentDataBase;
         }
     }
 }
