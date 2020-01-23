@@ -1,17 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Sebalance
 {
     public class LoadBalancer
     {
         IStrategy Strategy;
         int CurrentDataBase;
+        static List<DataBase> AllDataBases;
         int Max;
-        public LoadBalancer()
-        {
-            Strategy = new RoundRobin();
-            CurrentDataBase = 0;
-            Max = 9;
-        }
+        
         public LoadBalancer(IStrategy s)
         {
             Strategy = s;
@@ -28,10 +26,10 @@ namespace Sebalance
         {
             Strategy = s;
         }
-        public int ChooseDatabase()
+        public DataBase ChooseDatabase()
         {
-            CurrentDataBase= Strategy.GetNext(CurrentDataBase, Max);
-            return CurrentDataBase;
+            CurrentDataBase = Strategy.GetNext(CurrentDataBase, Max);
+            return AllDataBases[CurrentDataBase];
         }
     }
 }

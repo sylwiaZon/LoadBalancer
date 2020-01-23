@@ -2,12 +2,18 @@
   <MonoDevelop.Ide.ItemProperties.FurnitureShop PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Sebalance/LoadBalancer.cs">
     <Files>
-      <File FileName="Sebalance/LoadBalancer.cs" Line="1" Column="1" />
+      <File FileName="Sebalance/LoadBalancer.cs" Line="9" Column="48" />
+      <File FileName="Sebalance/HeartBeat.cs" Line="10" Column="34" />
+      <File FileName="Sebalance/DataBase.cs" Line="8" Column="6" />
+      <File FileName="Sebalance/OpenSessionInViewSection.cs" Line="1" Column="1" />
+      <File FileName="FurnitureShop/Program.cs" Line="19" Column="24" />
+      <File FileName="Sebalance/DataBasesCollection.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sebalance" expanded="True">
+            <Node name="FurnitureShop" expanded="True" />
             <Node name="Sebalance" expanded="True">
               <Node name="LoadBalancer.cs" selected="True" />
             </Node>
