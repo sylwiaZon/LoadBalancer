@@ -183,10 +183,9 @@ namespace Sebalance
                     break;
                 }
             }
-            if (crashed)
-            {
-                UoW.Storage = dCopy;
-            }
+           
+            UoW.Storage = dCopy;
+            
         }
         public void Delete<T>(T obj)
         {
