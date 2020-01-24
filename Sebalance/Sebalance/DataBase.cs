@@ -110,6 +110,7 @@ namespace Sebalance
                     {
                         Available = true;
                         HeartBeatCounter = 0;
+                        //tutaj pobieramy i wolamy wszystko z uow
                     }
                 }
             }

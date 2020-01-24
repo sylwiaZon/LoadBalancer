@@ -6,21 +6,27 @@ using System.Text;
 
 namespace Sebalance
 {
-    class RequestsStorageUoW
+    public class RequestsStorageUoW
     {
-        public Dictionary<int, string> Storage { get; internal set; }
+        public class Command
+        {
+            public String Type { set; get; }
+            public Object Obj { set; get; }
+            
+        }
+        public Dictionary<int, Command> Storage { get; internal set; }
 
-        public RequestsStorageUoW(Dictionary<int, string> Storage)
+        public RequestsStorageUoW(Dictionary<int, Command> Storage)
         {
             this.Storage = Storage;
         }
 
         public RequestsStorageUoW()
         {
-            this.Storage = new Dictionary<int, string>();
+            this.Storage = new Dictionary<int, Command>();
         }
         
-        public void Add(int index, string request)
+        public void Add(int index, Command request)
         {
             Storage.Add(index, request);
         }
@@ -35,7 +41,7 @@ namespace Sebalance
             ArrayList requests = new ArrayList();
             for(int i = from+1; i< Storage.Keys.Last(); i++)
             {
-                string value = "";
+                Command value = new Command();
                 Storage.TryGetValue(i, out value);
                 requests.Add(value);
             }
