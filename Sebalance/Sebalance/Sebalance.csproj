@@ -14,5 +14,9 @@
     <Compile Remove="ISubject1.cs" />
     <Compile Remove="NHSQLInterceptor.cs" />
     <Compile Remove="NHSQL.cs" />
+    <Compile Remove="OpenSessionInViewSection.cs" />
+    <Compile Remove="ISubject.cs" />
+    <Compile Remove="DataBasesCollection.cs" />
+    <Compile Remove="DataBaseElement.cs" />
   </ItemGroup>
 </Project>

@@ -20,7 +20,7 @@ namespace Sebalance
             }
             
         }
-       
+        public bool Downloaded = false; 
         public Dictionary<int, Command> Storage { get; internal set; }
 
         public RequestsStorageUoW(Dictionary<int, Command> Storage)
