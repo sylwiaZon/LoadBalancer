@@ -9,7 +9,7 @@ namespace Sebalance
             IInterceptor.OnPrepareStatement
                 (NHibernate.SqlCommand.SqlString sql)
         {
-            NHSQL.NHibernateSQL = sql.ToString();
+            NHSQL.NHibernateSQL = sql.GetParameters().ToString();
             return sql;
         }
     }

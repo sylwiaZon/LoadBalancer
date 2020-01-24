@@ -12,6 +12,7 @@
   <ItemGroup>
     <Compile Remove="Observer.cs" />
     <Compile Remove="ISubject1.cs" />
-    <Compile Remove="LoggingSqlClientDriver.cs" />
+    <Compile Remove="NHSQLInterceptor.cs" />
+    <Compile Remove="NHSQL.cs" />
   </ItemGroup>
 </Project>
