@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Sebalance
 {
@@ -22,10 +23,49 @@ namespace Sebalance
             Max = dbs.Count;
         }
 
-        static public DataBase ChooseDatabase()
+        static private DataBase ChooseDatabase()
         {
             CurrentDataBase = Strategy.GetNext(CurrentDataBase, Max);
             return AllDataBases[CurrentDataBase];
         }
+
+
+        public static IQueryable<T> Query<T>()
+        {
+            return ChooseDatabase().GetSession().Query<T>();
+        }
+
+        public static void Save<T>(T obj)
+        {
+            foreach (var db in AllDataBases) {
+                db.GetSession().Save(obj);
+            }
+        }
+
+        public static void Delete<T>(T obj)
+        {
+            foreach (var db in AllDataBases)
+            {
+                var session = db.GetSession();
+                var trx = session.BeginTransaction();
+                session.Delete(obj);
+                trx.Commit();
+            }
+        }
+        
+
+        public static void Update<T>(T obj)
+        {
+            foreach (var db in AllDataBases)
+            {
+                var session = db.GetSession();
+                var trx = session.BeginTransaction();
+                session.Update(obj);
+                trx.Commit();
+            }
+        }
+
+
+
     }
 }

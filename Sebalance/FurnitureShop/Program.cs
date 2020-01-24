@@ -1,4 +1,5 @@
-﻿using Sebalance;
+﻿using NHibernate.Util;
+using Sebalance;
 using System;
 using System.Collections.Generic;
 
@@ -24,21 +25,40 @@ namespace FurnitureShop
             });
             LoadBalancer.SetStrategy(s);
 
-            var db = LoadBalancer.ChooseDatabase();
-            var session = db.GetSession();
-            session.Save(new Table());
-           // session.
-           //for (int i = 0; i < 15; i++)
-           // {
-           //     Console.WriteLine(lb.ChooseDatabase());
-           // }
-           // lb.SetStrategy(s2);
-           // Console.WriteLine("randomix");
-           // for (int i = 0; i < 15; i++)
-           // {
-           //     Console.WriteLine(lb.ChooseDatabase());
-           // }
+            LoadBalancer.Save(new Table {
+                Color = "Czarny",
+                 Material = "aksamit"
+            });
+
+            Table tab = new Table(){
+                Color = "Różowy",
+                Material = "skóra"
+            };
+
+            LoadBalancer.Save(tab);
+            tab.Color = "purpurowy";
+            LoadBalancer.Update(tab);
+
+            LoadBalancer.Delete(tab);
             
+            LoadBalancer.Query<Table>().ForEach(t =>
+            {
+                Console.WriteLine($"{t.Material} + {t.Color}");
+            });
+
+            //            session.Save(new Table());
+            // session.
+            //for (int i = 0; i < 15; i++)
+            // {
+            //     Console.WriteLine(lb.ChooseDatabase());
+            // }
+            // lb.SetStrategy(s2);
+            // Console.WriteLine("randomix");
+            // for (int i = 0; i < 15; i++)
+            // {
+            //     Console.WriteLine(lb.ChooseDatabase());
+            // }
+
         }
     }
 }

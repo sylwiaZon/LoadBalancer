@@ -31,12 +31,12 @@ namespace Sebalance
             Available = av;
         }
 
-        public ISessionFactory GetSessionFactory()
+        private ISessionFactory GetSessionFactory()
         {
             return SessionFacotry;
         }
 
-        public ISession GetSession()
+        internal ISession GetSession()
         {
             return SessionFacotry.OpenSession();
         }
