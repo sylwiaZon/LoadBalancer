@@ -12,5 +12,6 @@
   <ItemGroup>
     <Compile Remove="Observer.cs" />
     <Compile Remove="ISubject1.cs" />
+    <Compile Remove="LoggingSqlClientDriver.cs" />
   </ItemGroup>
 </Project>

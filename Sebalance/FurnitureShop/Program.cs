@@ -46,6 +46,9 @@ namespace FurnitureShop
                 Console.WriteLine($"{t.Material} + {t.Color}");
             });
 
+
+
+
             //            session.Save(new Table());
             // session.
             //for (int i = 0; i < 15; i++)
