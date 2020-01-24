@@ -8,7 +8,7 @@ namespace Sebalance
     public class LoadBalancer
     {
         private  IStrategy Strategy;
-        private  int CurrentDataBase = 0;
+        private  int CurrentDataBase = -1;
         private  List<DataBase> AllDataBases;
         static int Max;
         private static RequestsStorageUoW Requests = new RequestsStorageUoW();
@@ -45,6 +45,7 @@ namespace Sebalance
 
          private DataBase ChooseDatabase()
         {
+            Console.WriteLine(CurrentDataBase);
             CurrentDataBase = Strategy.GetNext(CurrentDataBase, Max);
             return AllDataBases[CurrentDataBase];
         }
@@ -59,6 +60,7 @@ namespace Sebalance
                     DataBase db = ChooseDatabase();
                     if (db.IsAvailable())
                     {
+                        Console.WriteLine(String.Format("Select from Data Base {0} ", db.Name));
                         return db.GetSession().Query<T>();
                     }
                     else

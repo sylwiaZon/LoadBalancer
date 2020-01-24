@@ -1,21 +1,24 @@
 ﻿<Properties StartupConfiguration="{8449B613-0D1D-419C-80A2-73A67189AF2A}|Default">
   <MonoDevelop.Ide.ItemProperties.FurnitureShop PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FurnitureShop/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Sebalance/RoundRobin.cs">
     <Files>
       <File FileName="Sebalance/HeartBeat.cs" Line="44" Column="20" />
-      <File FileName="Sebalance/LoadBalancer.cs" Line="62" Column="35" />
-      <File FileName="Sebalance/DataBase.cs" Line="171" Column="45" />
+      <File FileName="Sebalance/LoadBalancer.cs" Line="48" Column="29" />
+      <File FileName="Sebalance/DataBase.cs" Line="101" Column="92" />
       <File FileName="Sebalance/RequestsStorageUoW.cs" Line="25" Column="28" />
-      <File FileName="FurnitureShop/Program.cs" Line="26" Column="37" />
+      <File FileName="FurnitureShop/Program.cs" Line="67" Column="16" />
+      <File FileName="Sebalance/RoundRobin.cs" Line="9" Column="24" />
+      <File FileName="Sebalance/IStrategy.cs" Line="1" Column="1" />
+      <File FileName="Sebalance/RandomStrategy.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sebalance" expanded="True">
-            <Node name="FurnitureShop" expanded="True">
-              <Node name="Program.cs" selected="True" />
+            <Node name="FurnitureShop" expanded="True" />
+            <Node name="Sebalance" expanded="True">
+              <Node name="RoundRobin.cs" selected="True" />
             </Node>
-            <Node name="Sebalance" expanded="True" />
           </Node>
         </State>
       </Pad>

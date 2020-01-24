@@ -18,12 +18,15 @@ namespace FurnitureShop
             IStrategy s2 = new RoundRobin();
             var sessionFactory1 = new NHibernateSessionFactory("Server=104.211.12.200; Port=3306; Database = furnitureShop; Uid = sebalance; Password = sebalance; ", new List<Type> { typeof(Table) });
             var sessionFactory2 = new NHibernateSessionFactory("Server=104.211.12.200; Port=3307; Database = furnitureShop; Uid = sebalance; Password = sebalance; ", new List<Type> { typeof(Table) });
+
+            var sessionFactory3 = new NHibernateSessionFactory("Server=104.211.12.200; Port=3308; Database = furnitureShop; Uid = sebalance; Password = sebalance; ", new List<Type> { typeof(Table) });
             LoadBalancer.SetDatabases(new List<DataBase>
             {
                 new DataBase(sessionFactory1.SessionFactory),
-                new DataBase(sessionFactory2.SessionFactory)
+                new DataBase(sessionFactory2.SessionFactory),
+                new DataBase(sessionFactory3.SessionFactory)
             });
-            LoadBalancer.SetStrategy(s);
+            LoadBalancer.SetStrategy(s2);
 
             LoadBalancer.Save(new Table {
                 Color = "Czarny",
@@ -41,6 +44,23 @@ namespace FurnitureShop
 
             LoadBalancer.Delete(tab);
             
+            LoadBalancer.Query<Table>().ForEach(t =>
+            {
+                Console.WriteLine($"{t.Material} + {t.Color}");
+            });
+
+            LoadBalancer.Query<Table>().ForEach(t =>
+            {
+                Console.WriteLine($"{t.Material} + {t.Color}");
+            });
+            LoadBalancer.Query<Table>().ForEach(t =>
+            {
+                Console.WriteLine($"{t.Material} + {t.Color}");
+            });
+            LoadBalancer.Query<Table>().ForEach(t =>
+            {
+                Console.WriteLine($"{t.Material} + {t.Color}");
+            });
             LoadBalancer.Query<Table>().ForEach(t =>
             {
                 Console.WriteLine($"{t.Material} + {t.Color}");

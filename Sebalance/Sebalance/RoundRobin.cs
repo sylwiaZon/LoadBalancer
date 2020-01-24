@@ -6,7 +6,7 @@ namespace Sebalance
         public int GetNext(int current, int max)
         {
             int next = current + 1;
-            if (next > max)
+            if (next >= max)
             {
                 next = 0;
             }

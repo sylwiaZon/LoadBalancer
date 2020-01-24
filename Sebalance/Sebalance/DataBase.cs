@@ -13,7 +13,7 @@ namespace Sebalance
         private int LastCommand { get; set; }
         private static HeartBeat HeartBeat;
         private RequestsStorageUoW UoW;
-        private String Name { get; set; }
+        public String Name { get; set; }
         public DataBase(ISessionFactory sessionFactory)
         {
             HeartBeat = HeartBeat.GetInstance();
