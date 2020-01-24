@@ -45,7 +45,7 @@ namespace Sebalance
 
          private DataBase ChooseDatabase()
         {
-            Console.WriteLine(CurrentDataBase);
+            
             CurrentDataBase = Strategy.GetNext(CurrentDataBase, Max);
             return AllDataBases[CurrentDataBase];
         }

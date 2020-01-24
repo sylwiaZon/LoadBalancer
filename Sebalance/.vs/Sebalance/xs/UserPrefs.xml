@@ -2,14 +2,12 @@
   <MonoDevelop.Ide.ItemProperties.FurnitureShop PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Sebalance/RoundRobin.cs">
     <Files>
-      <File FileName="Sebalance/HeartBeat.cs" Line="44" Column="20" />
-      <File FileName="Sebalance/LoadBalancer.cs" Line="48" Column="29" />
-      <File FileName="Sebalance/DataBase.cs" Line="101" Column="92" />
-      <File FileName="Sebalance/RequestsStorageUoW.cs" Line="25" Column="28" />
-      <File FileName="FurnitureShop/Program.cs" Line="67" Column="16" />
+      <File FileName="FurnitureShop/Program.cs" Line="37" Column="41" />
       <File FileName="Sebalance/RoundRobin.cs" Line="9" Column="24" />
       <File FileName="Sebalance/IStrategy.cs" Line="1" Column="1" />
       <File FileName="Sebalance/RandomStrategy.cs" Line="1" Column="1" />
+      <File FileName="Sebalance/NHibernateSessionFactory.cs" Line="1" Column="1" />
+      <File FileName="Sebalance/LoadBalancer.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
