@@ -11,8 +11,6 @@ namespace FurnitureShop
         {
             Console.WriteLine("Hello World!");
 
-
-
             
             IStrategy s = new RandomStrategy();
             IStrategy s2 = new RoundRobin();
@@ -45,6 +43,9 @@ namespace FurnitureShop
             {
                 Console.WriteLine($"{t.Material} + {t.Color}");
             });
+
+
+
 
             //            session.Save(new Table());
             // session.

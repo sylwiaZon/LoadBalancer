@@ -10,6 +10,8 @@ namespace Sebalance
         private static int CurrentDataBase = 0;
         private static List<DataBase> AllDataBases;
         static int Max;
+        private static RequestsStorageUoW Requests = new RequestsStorageUoW();
+        private static int RequestsCounter = 0;
 
         private LoadBalancer() { }
         
@@ -37,9 +39,13 @@ namespace Sebalance
 
         public static void Save<T>(T obj)
         {
+          
             foreach (var db in AllDataBases) {
-                db.GetSession().Save(obj);
+                  db.GetSession().Save(obj);
             }
+            string generatedSQL = NHSQL.NHibernateSQL;
+            Console.WriteLine($"GENERATED STRING:: {generatedSQL}");
+
         }
 
         public static void Delete<T>(T obj)
@@ -51,8 +57,11 @@ namespace Sebalance
                 session.Delete(obj);
                 trx.Commit();
             }
+
+ 
+
         }
-        
+
 
         public static void Update<T>(T obj)
         {
@@ -63,9 +72,8 @@ namespace Sebalance
                 session.Update(obj);
                 trx.Commit();
             }
+          
         }
-
-
 
     }
 }

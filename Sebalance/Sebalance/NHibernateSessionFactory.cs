@@ -35,13 +35,12 @@ namespace Sebalance
                 cfg.AddClass(t);
             }
 
-            // With this row below Nhibernate searches for the connection string inside the App.Config.
-            // cfg.SetProperty(NHibernate.Cfg.Environment.ConnectionStringName, System.Environment.MachineName);
             cfg.SetProperty(NHibernate.Cfg.Environment.ConnectionString, this.ConnectionString);
 
 #if DEBUG
             cfg.SetProperty(NHibernate.Cfg.Environment.GenerateStatistics, "true");
             cfg.SetProperty(NHibernate.Cfg.Environment.ShowSql, "true");
+            cfg.SetInterceptor(new NHSQLInterceptor());
 #endif
             new SchemaExport(cfg).Execute(true, true, false);
             return (cfg.BuildSessionFactory());
