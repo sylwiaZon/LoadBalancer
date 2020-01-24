@@ -11,7 +11,7 @@ namespace FurnitureShop
         {
             Console.WriteLine("Hello World!");
 
-
+            LoadBalancer LoadBalancer = new LoadBalancer();
 
             
             IStrategy s = new RandomStrategy();

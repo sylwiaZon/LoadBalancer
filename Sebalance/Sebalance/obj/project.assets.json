@@ -6180,19 +6180,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/aniii/.nuget/packages/": {}
+    "/Users/pyszczekk/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/aniii/Desktop/LoadBalancer/Sebalance/Sebalance/Sebalance.csproj",
+      "projectUniqueName": "/Users/pyszczekk/Desktop/LoadBalancer/Sebalance/Sebalance/Sebalance.csproj",
       "projectName": "Sebalance",
-      "projectPath": "/Users/aniii/Desktop/LoadBalancer/Sebalance/Sebalance/Sebalance.csproj",
-      "packagesPath": "/Users/aniii/.nuget/packages/",
-      "outputPath": "/Users/aniii/Desktop/LoadBalancer/Sebalance/Sebalance/obj/",
+      "projectPath": "/Users/pyszczekk/Desktop/LoadBalancer/Sebalance/Sebalance/Sebalance.csproj",
+      "packagesPath": "/Users/pyszczekk/.nuget/packages/",
+      "outputPath": "/Users/pyszczekk/Desktop/LoadBalancer/Sebalance/Sebalance/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/aniii/.config/NuGet/NuGet.Config"
+        "/Users/pyszczekk/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"

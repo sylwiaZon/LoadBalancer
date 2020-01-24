@@ -1,48 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace Sebalance
 {
     public class LoadBalancer
     {
-        private static IStrategy Strategy;
-        private static int CurrentDataBase = 0;
-        private static List<DataBase> AllDataBases;
+        private  IStrategy Strategy;
+        private  int CurrentDataBase = 0;
+        private  List<DataBase> AllDataBases;
         static int Max;
-
-        private LoadBalancer() { }
+        private static HeartBeat HeartBeat = HeartBeat.GetInstance();
+        public LoadBalancer()
+        {
+           
+        }
         
-        public static void SetStrategy(IStrategy s)
+        public  void SetStrategy(IStrategy s)
         {
             Strategy = s;
         }
 
-        public static void SetDatabases(List<DataBase> dbs) {
+        public  void SetDatabases(List<DataBase> dbs) {
             AllDataBases = dbs;
             Max = dbs.Count;
+            Thread heartBeat = new Thread(new ThreadStart(HeartBeat.ThreadHeartBeat));
+            heartBeat.Start();
         }
 
-        static private DataBase ChooseDatabase()
+         private DataBase ChooseDatabase()
         {
             CurrentDataBase = Strategy.GetNext(CurrentDataBase, Max);
             return AllDataBases[CurrentDataBase];
         }
 
 
-        public static IQueryable<T> Query<T>()
+        public  IQueryable<T> Query<T>()
         {
             return ChooseDatabase().GetSession().Query<T>();
         }
 
-        public static void Save<T>(T obj)
+        public  void Save<T>(T obj)
         {
             foreach (var db in AllDataBases) {
                 db.GetSession().Save(obj);
             }
         }
 
-        public static void Delete<T>(T obj)
+        public  void Delete<T>(T obj)
         {
             foreach (var db in AllDataBases)
             {
@@ -54,7 +60,7 @@ namespace Sebalance
         }
         
 
-        public static void Update<T>(T obj)
+        public  void Update<T>(T obj)
         {
             foreach (var db in AllDataBases)
             {
