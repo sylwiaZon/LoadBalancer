@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using NHibernate;
 using NHibernate.Cfg;
+using NHibernate.Tool.hbm2ddl;
 
 namespace Sebalance
 {
@@ -10,12 +12,12 @@ namespace Sebalance
         private ISessionFactory sessionFactory;
 
         private readonly string ConnectionString = "";
-        private readonly string nHibernateConfigFile = "";
+        private readonly List<Type> types;
 
-        public NHibernateSessionFactory(String connectionString, string nHConfigFile)
+        public NHibernateSessionFactory(String connectionString, List<Type> types)
         {
             this.ConnectionString = connectionString;
-            this.nHibernateConfigFile = nHConfigFile;
+            this.types = types;
         }
 
         public ISessionFactory SessionFactory
@@ -25,8 +27,13 @@ namespace Sebalance
 
         private ISessionFactory CreateSessionFactory()
         {
+
             Configuration cfg;
-            cfg = new Configuration().Configure(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, this.nHibernateConfigFile));
+            cfg = new Configuration().Configure();
+
+            foreach(var t in types) {
+                cfg.AddClass(t);
+            }
 
             // With this row below Nhibernate searches for the connection string inside the App.Config.
             // cfg.SetProperty(NHibernate.Cfg.Environment.ConnectionStringName, System.Environment.MachineName);
@@ -36,7 +43,7 @@ namespace Sebalance
             cfg.SetProperty(NHibernate.Cfg.Environment.GenerateStatistics, "true");
             cfg.SetProperty(NHibernate.Cfg.Environment.ShowSql, "true");
 #endif
-
+            new SchemaExport(cfg).Execute(true, true, false);
             return (cfg.BuildSessionFactory());
         }
     }
