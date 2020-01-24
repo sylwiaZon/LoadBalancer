@@ -46,8 +46,7 @@ namespace Sebalance
                 }
             }
 
-            //tutaj obsluga bledow i dodanie do listy Unreachable
-            //wolanie for each jesli trzeba
+          
             DataBases = DataBases.Where(db =>!db.IsSwitchedOff()).ToList();
             Notify();
         }
