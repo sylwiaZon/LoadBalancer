@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NHibernate" Version="5.2.6" />
+    <PackageReference Include="MySql.Data" Version="8.0.19" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Observer.cs" />
+    <Compile Remove="ISubject1.cs" />
+    <Compile Remove="NHSQLInterceptor.cs" />
+    <Compile Remove="NHSQL.cs" />
+    <Compile Remove="OpenSessionInViewSection.cs" />
+    <Compile Remove="ISubject.cs" />
+    <Compile Remove="DataBasesCollection.cs" />
+    <Compile Remove="DataBaseElement.cs" />
+  </ItemGroup>
+</Project>

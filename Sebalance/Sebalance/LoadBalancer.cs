@@ -1,37 +1,142 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+
 namespace Sebalance
 {
     public class LoadBalancer
     {
-        Strategy strategy;
-        int currentDataBase;
-        int max;
+        private  IStrategy Strategy;
+        private  int CurrentDataBase = -1;
+        private  List<DataBase> AllDataBases;
+        static int Max;
+        private static RequestsStorageUoW Requests = new RequestsStorageUoW();
+        private static int RequestsCounter = 0;
+
+        private static HeartBeat HeartBeat = HeartBeat.GetInstance();
         public LoadBalancer()
         {
-            this.strategy = new RoundRobin();
-            this.currentDataBase = 0;
-            this.max = 9;
+           
         }
-        public LoadBalancer(Strategy s)
+        
+        public  void SetStrategy(IStrategy s)
         {
-            this.strategy = s;
+            Strategy = s;
         }
-        public void setMaximum(int m)
+
+        public  void SetDatabases(List<DataBase> dbs) {
+            AllDataBases = dbs;
+            Max = dbs.Count;
+            Thread heartBeat = new Thread(new ThreadStart(HeartBeat.ThreadHeartBeat));
+            heartBeat.Start();
+        }
+        public bool NoMoreDataBases()
         {
-            this.max = m;
+            foreach(DataBase db in AllDataBases)
+            {
+                if (db.IsSwitchedOn())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
-        public void setCurrent(int k)
+
+         private DataBase ChooseDatabase()
         {
-            this.currentDataBase = k;
+            
+            CurrentDataBase = Strategy.GetNext(CurrentDataBase, Max);
+            return AllDataBases[CurrentDataBase];
         }
-        public void setStrategy(Strategy s)
+
+
+        public IQueryable<T> Query<T>()
         {
-            this.strategy = s;
+            try
+            {
+                while (NoMoreDataBases())
+                {
+                    DataBase db = ChooseDatabase();
+                    if (db.IsAvailable())
+                    {
+                        Console.WriteLine(String.Format("Select from Data Base {0} ", db.Name));
+                        return db.GetSession().Query<T>();
+                    }
+                    else
+                    {
+                        db.SetAvailability(false);
+                    }
+                }
+                throw new Exception();
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("All databases are dead. Try to restart");
+            }
+            return null;
         }
-        public int chooseDatabase()
+
+        public  void Save<T>(T obj)
         {
-            this.currentDataBase= this.strategy.getNext(this.currentDataBase, this.max);
-            return this.currentDataBase;
+            RequestsCounter++;
+            foreach (var db in AllDataBases)
+            {
+                
+                    if (db.IsAvailable())
+                    {
+                    db.Save(obj);
+                    }
+                    else if (!db.IsAvailable() && db.IsSwitchedOn())
+                    {
+                    db.AddToUoW(RequestsCounter, "INSERT", obj);
+                    }
+                
+               
+
+            }
+
         }
+
+        public  void Delete<T>(T obj)
+        {
+            RequestsCounter++;
+            foreach (var db in AllDataBases)
+            {
+                 if (db.IsAvailable())
+                {
+                    db.Delete(obj);
+                }
+                else if (!db.IsAvailable() && db.IsSwitchedOn())
+                {
+                    db.AddToUoW(RequestsCounter, "DELETE", obj);
+                }
+
+            }
+
+ 
+
+        }
+
+
+        public  void Update<T>(T obj)
+        {
+            RequestsCounter++;
+            foreach (var db in AllDataBases)
+            {
+                
+                if (db.IsAvailable())
+                {
+                    db.Update(obj);
+                }
+                else if (!db.IsAvailable() && db.IsSwitchedOn())
+                {
+                    db.AddToUoW(RequestsCounter, "UPDATE", obj);
+                }
+
+            }
+
+        }
+
     }
 }
