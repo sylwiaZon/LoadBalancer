@@ -6,15 +6,18 @@ namespace Sebalance
 {
     public class DataBase
     {
-        private ISessionFactory SessionFacotry { get; set; }
+        private ISessionFactory SessionFactory { get; set; }
         private bool Available { get; set; }
         private bool SwitchedOff { get; set; }
         private int HeartBeatCounter { get; set; }
         private int LastCommand { get; set; }
+        private static HeartBeat HeartBeat;
 
         public DataBase(ISessionFactory sessionFactory)
         {
-            SessionFacotry = sessionFactory;
+            HeartBeat = HeartBeat.GetInstance();
+            HeartBeat.Subscribe(this);
+            SessionFactory = sessionFactory;
             Available = true;
             SwitchedOff = false;
             HeartBeatCounter = 0;
@@ -33,12 +36,12 @@ namespace Sebalance
 
         private ISessionFactory GetSessionFactory()
         {
-            return SessionFacotry;
+            return SessionFactory;
         }
 
         internal ISession GetSession()
         {
-            return SessionFacotry.OpenSession();
+            return SessionFactory.OpenSession();
         }
 
         public bool IsAvailable()
@@ -76,23 +79,29 @@ namespace Sebalance
             return LastCommand;
         }
 
-        public void Update(List<object> unreachable)
+        public void Update(List<DataBase> unreachable)
         {
-            foreach(object db in unreachable)
+           
+            if (!SwitchedOff)
             {
-                if(db == SessionFacotry)
+                if (unreachable.Find(x => x == this) != null)
                 {
+                    Console.WriteLine(String.Format("Data Base {0} is not responding", GetSession().Connection.ConnectionString));
+                    HeartBeatCounter += 1;
                     if (Available)
                     {
                         Available = false;
                     }
                     else
                     {
-                        if(HeartBeatCounter == 50)
+                        if (HeartBeatCounter == 50)
                         {
+                            Console.WriteLine(String.Format("Data Base {0} has been switched off", GetSession().Connection.ConnectionString));
+                          
                             SwitchedOff = true;
+                          
                         }
-                        HeartBeatCounter += 1;
+
                     }
                 }
                 else
@@ -104,8 +113,8 @@ namespace Sebalance
                     }
                 }
             }
+          
            
-            Console.WriteLine("zostalam zupdatowana!");
         }
 
     }

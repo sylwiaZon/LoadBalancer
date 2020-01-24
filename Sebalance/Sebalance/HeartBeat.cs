@@ -1,22 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace Sebalance
 {
-     class HeartBeat : ISubject
+    public class HeartBeat
 
     {
-        List<Object> Unreachable;
-        List<DataBase> DataBases;
-        public HeartBeat()
+        static List<DataBase> Unreachable;
+        static List<DataBase> DataBases;
+        public static HeartBeat Instance = new HeartBeat();
+
+        public static HeartBeat GetInstance()
         {
-            DataBases = new List<DataBase>();
-            Unreachable = new List<object>();
+            return Instance;
         }
 
-        void ISubject.SendHeartBeat()
+        private HeartBeat()
         {
+            DataBases = new List<DataBase>();
+            Unreachable = new List<DataBase>();
+        }
+        public void ThreadHeartBeat()
+        {
+            while (true)
+            {
+                Thread.Sleep(5000);
+                SendHeartBeat();
+            }
+        }
+        public void SendHeartBeat()
+        {
+            Unreachable = new List<DataBase>();
+            foreach(DataBase db in DataBases)
+            {
+                try
+                {
+                    _ = db.GetSession().CreateSQLQuery("SELECT null").UniqueResult();
+                }
+                catch (Exception)
+                {
+                    Unreachable.Add(db);
+                }
+            }
             //tutaj obsluga bledow i dodanie do listy Unreachable
             //wolanie for each jesli trzeba
             DataBases = DataBases.Where(db =>!db.IsSwitchedOff()).ToList();
@@ -27,10 +54,7 @@ namespace Sebalance
             DataBases.Add(observer);
         }
 
-        public void Unsubscribe(DataBase observer)
-        {
-            DataBases.Remove(observer);
-        }
+
         public void Notify()
         {
             foreach (DataBase db in DataBases)
@@ -39,5 +63,7 @@ namespace Sebalance
 
             }
         }
+
+    
     }
 }
