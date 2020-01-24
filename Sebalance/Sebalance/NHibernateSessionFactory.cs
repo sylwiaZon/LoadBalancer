@@ -40,7 +40,7 @@ namespace Sebalance
 #if DEBUG
             cfg.SetProperty(NHibernate.Cfg.Environment.GenerateStatistics, "true");
             cfg.SetProperty(NHibernate.Cfg.Environment.ShowSql, "true");
-            cfg.SetInterceptor(new NHSQLInterceptor());
+           
 #endif
             new SchemaExport(cfg).Execute(true, true, false);
             return (cfg.BuildSessionFactory());

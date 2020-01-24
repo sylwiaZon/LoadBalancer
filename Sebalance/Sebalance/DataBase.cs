@@ -12,7 +12,7 @@ namespace Sebalance
         private int HeartBeatCounter { get; set; }
         private int LastCommand { get; set; }
         private static HeartBeat HeartBeat;
-
+        private RequestsStorageUoW UoW;
         public DataBase(ISessionFactory sessionFactory)
         {
             HeartBeat = HeartBeat.GetInstance();
@@ -21,7 +21,8 @@ namespace Sebalance
             Available = true;
             SwitchedOff = false;
             HeartBeatCounter = 0;
-            LastCommand = -1;
+            LastCommand = 0;
+            UoW = new RequestsStorageUoW();
         }
 
         public static explicit operator DataBase(List<DataBase> v)
@@ -58,6 +59,10 @@ namespace Sebalance
         {
             return SwitchedOff;
         }
+        public bool IsSwitchedOn()
+        {
+            return !SwitchedOff;
+        }
 
         public void AddHeartBit()
         {
@@ -67,6 +72,10 @@ namespace Sebalance
         public int getLastHeartBit()
         {
             return HeartBeatCounter;
+        }
+        public void AddToUoW(int i,String str, Object obj)
+        {
+            UoW.Add(i, new RequestsStorageUoW.Command(str, obj));
         }
 
         public void SetCommand(int command)
@@ -112,11 +121,29 @@ namespace Sebalance
                         HeartBeatCounter = 0;
                         //tutaj pobieramy i wolamy wszystko z uow
                     }
+                   
                 }
             }
           
            
         }
-
+        public void Delete<T>(T obj)
+        {
+            var session = GetSession();
+            var trx = session.BeginTransaction();
+            session.Delete(obj);
+            trx.Commit();
+        }
+        public void Update<T>(T obj)
+        {
+            var session = GetSession();
+            var trx = session.BeginTransaction();
+            session.Update(obj);
+            trx.Commit();
+        }
+        public void Save<T>(T obj)
+        {
+            GetSession().Save(obj);
+        }
     }
 }

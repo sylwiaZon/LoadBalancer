@@ -31,6 +31,17 @@ namespace Sebalance
             Thread heartBeat = new Thread(new ThreadStart(HeartBeat.ThreadHeartBeat));
             heartBeat.Start();
         }
+        public bool NoMoreDataBases()
+        {
+            foreach(DataBase db in AllDataBases)
+            {
+                if (db.IsSwitchedOn())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
          private DataBase ChooseDatabase()
         {
@@ -39,30 +50,66 @@ namespace Sebalance
         }
 
 
-        public  IQueryable<T> Query<T>()
+        public IQueryable<T> Query<T>()
         {
-            return ChooseDatabase().GetSession().Query<T>();
+            try
+            {
+                while (NoMoreDataBases())
+                {
+                    DataBase db = ChooseDatabase();
+                    if (db.IsAvailable())
+                    {
+                        return db.GetSession().Query<T>();
+                    }
+                    else
+                    {
+                        db.SetAvailability(false);
+                    }
+                }
+                throw new Exception();
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("All databases are dead. Try to restart");
+            }
+            return null;
         }
 
         public  void Save<T>(T obj)
         {
-          
-            foreach (var db in AllDataBases) {
-                  db.GetSession().Save(obj);
+            RequestsCounter++;
+            foreach (var db in AllDataBases)
+            {
+                
+                    if (db.IsAvailable())
+                    {
+                    db.Save(obj);
+                    }
+                    else if (!db.IsAvailable() && db.IsSwitchedOn())
+                    {
+                    db.AddToUoW(RequestsCounter, "INSERT", obj);
+                    }
+                
+               
+
             }
-            string generatedSQL = NHSQL.NHibernateSQL;
-            Console.WriteLine($"GENERATED STRING:: {generatedSQL}");
 
         }
 
         public  void Delete<T>(T obj)
         {
+            RequestsCounter++;
             foreach (var db in AllDataBases)
             {
-                var session = db.GetSession();
-                var trx = session.BeginTransaction();
-                session.Delete(obj);
-                trx.Commit();
+                 if (db.IsAvailable())
+                {
+                    db.Delete(obj);
+                }
+                else if (!db.IsAvailable() && db.IsSwitchedOn())
+                {
+                    db.AddToUoW(RequestsCounter, "DELETE", obj);
+                }
+
             }
 
  
@@ -72,14 +119,21 @@ namespace Sebalance
 
         public  void Update<T>(T obj)
         {
+            RequestsCounter++;
             foreach (var db in AllDataBases)
             {
-                var session = db.GetSession();
-                var trx = session.BeginTransaction();
-                session.Update(obj);
-                trx.Commit();
+                
+                if (db.IsAvailable())
+                {
+                    db.Update(obj);
+                }
+                else if (!db.IsAvailable() && db.IsSwitchedOn())
+                {
+                    db.AddToUoW(RequestsCounter, "UPDATE", obj);
+                }
+
             }
-          
+
         }
 
     }

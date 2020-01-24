@@ -12,8 +12,15 @@ namespace Sebalance
         {
             public String Type { set; get; }
             public Object Obj { set; get; }
+            public Command() { }
+            public Command(String type, Object obj)
+            {
+                Type = type;
+                Obj = obj;
+            }
             
         }
+       
         public Dictionary<int, Command> Storage { get; internal set; }
 
         public RequestsStorageUoW(Dictionary<int, Command> Storage)
@@ -36,10 +43,10 @@ namespace Sebalance
             Storage.Clear();
         }
 
-        public ArrayList GetRequestsFrom(int from)
+        public ArrayList GetRequests()
         {
             ArrayList requests = new ArrayList();
-            for(int i = from+1; i< Storage.Keys.Last(); i++)
+            for(int i = 0; i< Storage.Keys.Last(); i++)
             {
                 Command value = new Command();
                 Storage.TryGetValue(i, out value);
