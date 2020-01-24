@@ -18,7 +18,12 @@ namespace Sebalance
                 Type = type;
                 Obj = obj;
             }
-            
+
+            internal Command Clone()
+            {
+                Command com = new Command(this.Type, this.Obj);
+                return com;
+            }
         }
         public bool Downloaded = false; 
         public Dictionary<int, Command> Storage { get; internal set; }
@@ -32,27 +37,36 @@ namespace Sebalance
         {
             this.Storage = new Dictionary<int, Command>();
         }
-        
+       
+
+        public Dictionary<int, Command> DeepCopy()
+        {
+            Dictionary<int, Command> other =  new  Dictionary<int, Command>(Storage.Count, Storage.Comparer);
+            foreach (KeyValuePair<int, Command> entry in Storage)
+            {
+                other.Add(entry.Key, (Command)entry.Value.Clone());
+            }
+            
+            return other;
+        }
+         
+        public void SetDownloaded(bool v)
+        {
+            Downloaded = v;
+        }
         public void Add(int index, Command request)
         {
             Storage.Add(index, request);
         }
-
+        
         public void Reset()
         {
             Storage.Clear();
         }
 
-        public ArrayList GetRequests()
+        public Dictionary<int, Command> GetRequests()
         {
-            ArrayList requests = new ArrayList();
-            for(int i = 0; i< Storage.Keys.Last(); i++)
-            {
-                Command value = new Command();
-                Storage.TryGetValue(i, out value);
-                requests.Add(value);
-            }
-            return requests;
+            return Storage;
         }
     }
 }

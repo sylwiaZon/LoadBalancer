@@ -41,6 +41,7 @@ namespace Sebalance
                 }
                 catch (Exception)
                 {
+                   
                     Unreachable.Add(db);
                 }
             }
