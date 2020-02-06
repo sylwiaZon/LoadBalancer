@@ -10,7 +10,6 @@ namespace Sebalance
         private bool Available { get; set; }
         private bool SwitchedOff { get; set; }
         private int HeartBeatCounter { get; set; }
-        private int LastCommand { get; set; }
         private static HeartBeat HeartBeat;
         private RequestsStorageUoW UoW;
         public String Name { get; set; }
@@ -22,14 +21,10 @@ namespace Sebalance
             Available = true;
             SwitchedOff = false;
             HeartBeatCounter = 0;
-            LastCommand = 0;
             UoW = new RequestsStorageUoW();
         }
 
-        public static explicit operator DataBase(List<DataBase> v)
-        {
-            throw new NotImplementedException();
-        }
+    
 
         public void SetAvailability(bool av)
         {
@@ -67,29 +62,12 @@ namespace Sebalance
             return !SwitchedOff;
         }
 
-        public void AddHeartBit()
-        {
-            HeartBeatCounter++;
-        }
-
-        public int getLastHeartBit()
-        {
-            return HeartBeatCounter;
-        }
+        
         public void AddToUoW(int i,String str, Object obj)
         {
             UoW.Add(i, new RequestsStorageUoW.Command(str, obj));
         }
 
-        public void SetCommand(int command)
-        {
-            LastCommand = command;
-        }
-
-        public int GetLastCommand()
-        {
-            return LastCommand;
-        }
 
         public void Update(List<DataBase> unreachable)
         {

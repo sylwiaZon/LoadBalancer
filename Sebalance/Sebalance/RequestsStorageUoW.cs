@@ -25,7 +25,7 @@ namespace Sebalance
                 return com;
             }
         }
-        public bool Downloaded = false; 
+        
         public Dictionary<int, Command> Storage { get; internal set; }
 
         public RequestsStorageUoW(Dictionary<int, Command> Storage)
@@ -50,10 +50,7 @@ namespace Sebalance
             return other;
         }
          
-        public void SetDownloaded(bool v)
-        {
-            Downloaded = v;
-        }
+       
         public void Add(int index, Command request)
         {
             Storage.Add(index, request);

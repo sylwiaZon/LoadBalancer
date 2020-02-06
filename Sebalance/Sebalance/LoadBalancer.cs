@@ -13,12 +13,8 @@ namespace Sebalance
         static int Max;
         private static RequestsStorageUoW Requests = new RequestsStorageUoW();
         private static int RequestsCounter = 0;
-
         private static HeartBeat HeartBeat = HeartBeat.GetInstance();
-        public LoadBalancer()
-        {
-           
-        }
+        
         
         public  void SetStrategy(IStrategy s)
         {
