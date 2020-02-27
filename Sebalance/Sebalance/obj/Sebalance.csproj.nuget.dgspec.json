@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\Sebalance\\Sebalance.csproj": {}
+    "/Users/pyszczekk/Desktop/LoadBalancer/Sebalance/Sebalance/Sebalance.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\Sebalance\\Sebalance.csproj": {
+    "/Users/pyszczekk/Desktop/LoadBalancer/Sebalance/Sebalance/Sebalance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\Sebalance\\Sebalance.csproj",
+        "projectUniqueName": "/Users/pyszczekk/Desktop/LoadBalancer/Sebalance/Sebalance/Sebalance.csproj",
         "projectName": "Sebalance",
-        "projectPath": "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\Sebalance\\Sebalance.csproj",
-        "packagesPath": "C:\\Users\\alabr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alabr\\source\\repos\\LoadBalancerDP\\Sebalance\\Sebalance\\obj\\",
+        "projectPath": "/Users/pyszczekk/Desktop/LoadBalancer/Sebalance/Sebalance/Sebalance.csproj",
+        "packagesPath": "/Users/pyszczekk/.nuget/packages/",
+        "outputPath": "/Users/pyszczekk/Desktop/LoadBalancer/Sebalance/Sebalance/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alabr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/pyszczekk/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,6 +36,10 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.19, )"
+            },
             "NHibernate": {
               "target": "Package",
               "version": "[5.2.6, )"
@@ -53,26 +55,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.0.1, 3.0.1]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.0.0, 3.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.0.0, 3.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }
